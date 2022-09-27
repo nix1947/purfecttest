@@ -55,7 +55,22 @@
             <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
           
             <li><a class="nav-link " href="#about">About</a></li>
-            <li><a class="getstarted" href="/login">Sign In</a></li>
+           
+            <% if (user) { %>
+             
+           
+            <li><a class="nav-link" href="/profile">Myprofile</a></li>
+            <li><a class="nav-link" href="#">Cart</a></li>
+            <li><a class="getstarted" href="/logout">Logout</a></li>
+            <% }  else { %>
+             
+             
+            <!-- <li><a class="nav-link" href="/login" style="margin-right:20px">Login</a></li> -->
+            <a href="/login" class=" back me-1 " style="padding-right: 30px;color:white;">Login </a> 
+          
+            <% } %>  
+            <div class="input-group">
+            
           </ul>
           <i class="bi bi-list mobile-nav-toggle"></i>
         </nav><!-- .navbar -->
@@ -70,9 +85,18 @@
     <div class="container text-center position-relative" data-aos="fade-in" data-aos-delay="200">
       <h1>One Stop for your pet products</h1>
       <h2>from premium pet food to quality treats,toys,beds and so much more</h2>
-      <a href="/signup" class="btn-get-started scrollto">Sign Up</a>
+      <% if (user) { %>
+      <a href="#" class="btn-get-started scrollto">search bar here </a>
+      <% }  else { %>
+      <a href="/signup" class="btn-get-started scrollto">sign up </a> 
+      <% } %>  
+
+
     </div>
+
+    
   </section><!-- End Hero -->
+  
 
   <main id="main">
 

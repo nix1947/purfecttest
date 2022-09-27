@@ -10,7 +10,9 @@ a {
 }
 
 a:hover {
-  color: #5f53ca;
+   color: #5f53ca;
+   
+  
   text-decoration: none;
 }
 
@@ -18,7 +20,14 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "Raleway", sans-serif;
 }
 
-
+.back{
+  background-color: #5f53ca;
+  border-radius: 20px;
+  margin-left: 20px;
+}
+.back:hover{
+  background-color:#7163d4;
+}
 
 /*--------------------------------------------------------------
 # Disable AOS delay on mobile

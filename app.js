@@ -7,6 +7,7 @@ const bodyparser= require('body-parser');
 const mysql= require('mysql');
 const dotenv= require('dotenv');
 const cookieParser= require('cookie-parser');
+const authcontroller= require('./controllers/auth');
 
 dotenv.config({path:'./.env'});
 
@@ -42,14 +43,15 @@ app.use('/js',express.static(path.join(__dirname, 'node_modules/bootstrap/dist/j
 
 app.use(express.urlencoded({extended:false}));
 app.use(express.json());
-app.use(cookieParser()); //cookies haru use garna
-
+app.use(cookieParser());//cookies haru use garna
 //homepage ko chuttai route banauna baki cha
 
-app.get('/', (req, res) => {
-  res.render('homepage');
+app.get('/',authcontroller.isLoggedIn,(req, res) => {
+  res.render('homepage',{
+    user:req.user
+  });
 
-})
+});
 
 //****importing routes***
 
@@ -68,10 +70,16 @@ app.use('/login',loginrouter);
 const signuprouter= require('./routes/signuproutes');
 app.use('/signup',signuprouter);
 
+// const adminloginrouter= require('./routes/adminlogin');
+// app.use('/admin',adminloginrouter);
 
+const userprofilerouter= require('./routes/userprofile');
+app.use('/profile',userprofilerouter);
+// const landingpagerouter= require('./routes/landingpageroute'); //login bhaye pachi balla dekhinu parne page ho yo  
+// app.use('/landingpage',landingpagerouter);
 
-
-
+const userlogoutrouter= require('./routes/userlogout');
+app.use('/logout',userlogoutrouter);
 // admin routes start//
 
 app.get('/orderdashboard',(req,res)=>{   //eni haruko chuttai routes chai banai sakeko chaina aile lai pachi banaune routes folder ma banayera

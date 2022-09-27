@@ -42,11 +42,13 @@
                                                 <button type="submit" class="btn1 mt-3 mb-5"> Login</button>
                                         </div>
                                          </div>
-                                         <% if(typeof message != "undefined" && message) { %>
+                                         <% if(typeof message!= "undefined" && message) { %>
                                           <p class="alert alert-danger mt-4"><%=message %> </p>
                                           <% } %> 
                                          <a href="#"> Forgot password</a> 
                                          <p>Don't have an account? <a href="/signup"> Register here</a></p>
+
+                                         <p>Return to Home <a href="/">Home</a></p>
                         </form>
                     </div>
                 </div>
