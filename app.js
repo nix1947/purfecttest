@@ -8,6 +8,9 @@ const mysql= require('mysql');
 const dotenv= require('dotenv');
 const cookieParser= require('cookie-parser');
 const authcontroller= require('./controllers/auth');
+const session = require('express-session');
+const passport = require('passport');
+const flash = require('connect-flash');
 
 dotenv.config({path:'./.env'});
 
@@ -46,6 +49,22 @@ app.use(express.json());
 app.use(cookieParser());//cookies haru use garna
 //homepage ko chuttai route banauna baki cha
 
+// tulsi
+
+// required for passport
+app.use(session({
+  name: 'mycookie',
+  secret: 'oursecret',
+  resave: false,
+  saveUninitialized: false
+})); // session secret
+app.use(passport.initialize()); //initiliazing passport with app.js
+app.use(passport.session()); // persistent login sessions
+app.use(flash()); // use connect-flash for flash messages store
+
+
+
+
 app.get('/',authcontroller.isLoggedIn,(req, res) => {
   res.render('homepage',{
     user:req.user
@@ -53,7 +72,16 @@ app.get('/',authcontroller.isLoggedIn,(req, res) => {
 
 });
 
+
+require('./controllers/passport')(passport); // pass passport for configuration
+//****importing  admin routes***
+require('./routes/adminroutes.js')(app, passport);
+
+
+
+
 //****importing routes***
+
 
 const catrouter = require('./routes/catroutes');
 app.use('/catproducts', catrouter);
@@ -79,40 +107,10 @@ app.use('/profile',userprofilerouter);
 // app.use('/landingpage',landingpagerouter);
 
 const userlogoutrouter= require('./routes/userlogout');
-app.use('/logout',userlogoutrouter);
-// admin routes start//
+app.use('/userlogout',userlogoutrouter);
 
-app.get('/orderdashboard',(req,res)=>{   //eni haruko chuttai routes chai banai sakeko chaina aile lai pachi banaune routes folder ma banayera
-    res.render('adminorders_dashboard');
-})
 
-app.get('/orderdetails',(req,res)=>{
-  res.render('adminorder_details');
-})
 
-app.get('/catview',(req,res)=>{
-  res.render('admincat_view');
-})
-
-  app.get('/addpage',(req,res)=>{
-    res.render('adminadd_page');
-  })
-
-  app.get('/updatepage',(req,res)=>{
-    res.render('adminupdate_page');
-  })
-
-    app.get('/fishview',(req,res)=>{
-      res.render('adminfish_view');
-})
-
-app.get('/productdetail',(req,res)=>{
-  res.render('adminproduct_details');
-})
-
-app.get('/dogview',(req,res)=>{
-  res.render('admindogs_view');
-})
 
 
 app.listen(3000, () => {

@@ -20,10 +20,16 @@
     "dotenv": "16.0.2",
     "ejs": "3.1.8",
     "express": "4.18.1",
+    "express-mysql-session": "2.1.8",
+    "express-passport-mysql": "1.0.0",
+    "express-session": "1.17.3",
+    "flash": "1.1.0",
     "jsonwebtoken": "8.5.1",
     "morgan": "1.10.0",
     "mysql": "2.18.1",
-    "nodemon": "2.0.18"
+    "nodemon": "2.0.18",
+    "passport-local": "1.0.0",
+    "session-memory-store": "1.0.0"
   },
   "nodemonConfig": {
     "delay": 2000,
