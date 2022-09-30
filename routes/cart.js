@@ -55,10 +55,8 @@ cartrouter.route('/:id').get((req,res)=>{
     
 
 })
-con.query("SELECT * from product where pid='?'",[id],(err,result)=>{
-    res.render('cart',{
-        result:result
-    });
+con.query("SELECT * from product where pid=?",[id],(err,result)=>{
+    res.render('cart');
 
 })
 });

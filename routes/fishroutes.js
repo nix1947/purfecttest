@@ -19,11 +19,14 @@ fishrouter.route('/').get((req,res)=>{
   
   );
   con.query("SELECT * from product where pcategory='fish'",(err,result)=>{
+    console.log(result);
     res.render('fishproducts',{
       result:result })
-      console.log(`the result display is${result}`);
+     
 })
 });
+
+// esma probelm
 
 fishrouter.route('/:id').get((req,res)=>{
 
@@ -37,11 +40,14 @@ fishrouter.route('/:id').get((req,res)=>{
     
 
 })
-con.query("SELECT * from product where pcategory='fish'",(err,result)=>{
-  res.render('fishdetail',{
-    result:result[id] })
-})
+con.query("SELECT * from product where pcategory='fish' and pid=?",[id],(err,result)=>{
 
+  console.log(result);
+  res.render('fishdetail',{result:result});
+  console.log(result[0].pname);
+  console.log(err);
+  
+})
 
 });
 
