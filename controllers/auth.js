@@ -40,6 +40,7 @@ exports.login = async (req, res) => {
             // sabbaikura match bhayo bhane creating token and using that
             else {
                 const user_id = results[0].user_id;
+                //token banauna user is ra secrect chaincha
                 const token = jwt.sign({ user_id }, process.env.JWT_SECRET, {
 
 
@@ -145,7 +146,7 @@ exports.isLoggedIn = async (req, res, next) => {
             //to decode the token to grab the id of user loggin in  
             const decoded = await promisify(jwt.verify)(req.cookies.jwt,
                 process.env.JWT_SECRET); //esle promise return gari ra cha ya success  ani failure kai
-            console.log(decoded);
+            console.log(`decoded is ${decoded}`);
             //*********Step 2: to check the user in db****************/
 
             con.query('select * from user where user_id= ?',[decoded.user_id], (error, results) => {

@@ -1,5 +1,6 @@
 const express= require('express');
 const fishrouter= express.Router();
+
 const mysql= require('mysql');
 
 
@@ -19,7 +20,8 @@ fishrouter.route('/').get((req,res)=>{
   );
   con.query("SELECT * from product where pcategory='fish'",(err,result)=>{
     res.render('fishproducts',{
-      result:result });
+      result:result })
+      console.log(`the result display is${result}`);
 })
 });
 
@@ -40,7 +42,7 @@ con.query("SELECT * from product where pcategory='fish'",(err,result)=>{
     result:result[id] })
 })
 
-});
 
+});
 
 module.exports= fishrouter;
