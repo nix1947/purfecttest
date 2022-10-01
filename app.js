@@ -108,8 +108,12 @@ app.use('/profile',userprofilerouter);
 
 const userlogoutrouter= require('./routes/userlogout');
 app.use('/userlogout',userlogoutrouter);
+
 const cartrouter =require('./routes/cart');
 app.use('/cart',cartrouter);
+
+const cartaddrouter= require('./routes/addtocart');
+app.use('/add/cart',cartaddrouter);
 
 
 

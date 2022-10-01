@@ -1,5 +1,6 @@
 const express= require('express');
 const cartrouter = express.Router();
+
 const mysql = require('mysql');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');  //password encryption
@@ -56,10 +57,15 @@ cartrouter.route('/:id').get((req,res)=>{
 
 })
 con.query("SELECT * from product where pid=?",[id],(err,result)=>{
-    res.render('cart');
+    res.render('cart',{
+        result:result
+    });
 
 })
 });
+
+
+
 
 
 module.exports= cartrouter;
