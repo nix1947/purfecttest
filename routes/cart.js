@@ -13,6 +13,15 @@ dotenv.config({path:'./.env'});
 
 let cart_message;
 
+const con = mysql.createConnection({
+  
+    host:process.env.DATABASE_HOST,
+    user:process.env.DATABASE_USER,
+    password:process.env.DATABASE_PASSWORD,
+    database:process.env.DATABASE
+  
+
+})
 
 
 
@@ -24,9 +33,10 @@ cartrouter.route('/').get(authcontroller.isLoggedIn, (req, res) => {
 
     }
     
-    let sql = "select product.pname, product.pprice, cart.quantity*product.pprice as sub_total from cart inner join product on cart.pid=product.pid where cart.user_id=?";
+    let sql = "select product.pname, product.pprice,cart.quantity,cart.quantity*product.pprice as sub_total from cart inner join product on cart.pid=product.pid where cart.user_id=?";
    
     con.query(sql, [req.user.user_id], function (err, result) {
+    
         if (err) {
             res.send("Error fetching user cart");
             return;
@@ -37,9 +47,9 @@ cartrouter.route('/').get(authcontroller.isLoggedIn, (req, res) => {
         }
 
 
-        if (result.length >= 0) {
+        if (result.length >=0) {
             total_item = result.length;
-            cart_message = `You have total ${total_item} item in your cart`;
+            cart_message = `You have  ${total_item} item in your cart`;
 
             let total_quantity = 0;
             let total_price = 0
@@ -49,7 +59,7 @@ cartrouter.route('/').get(authcontroller.isLoggedIn, (req, res) => {
                 total_price += item.sub_total;
             });
 
-            res.render('/cart', {
+            res.render('cart', {
                 cart_message: cart_message,
                 items: result,
                 total_quantity: total_quantity,

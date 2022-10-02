@@ -26,7 +26,6 @@ fishrouter.route('/').get((req,res)=>{
 })
 });
 
-// esma probelm
 
 fishrouter.route('/:id').get((req,res)=>{
 

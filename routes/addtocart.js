@@ -8,7 +8,7 @@ const authcontroller = require('../controllers/auth')
 
 const dotenv= require('dotenv');
 dotenv.config({path:'./.env'});
-let results;
+let product;
 // database connection
 
 const con = mysql.createConnection({
@@ -41,6 +41,7 @@ cartaddrouter.route('/').get(authcontroller.isLoggedIn, (req, res) => {
         res.render('addtocart',{
             user:req.user
         });
+        // res.render('addtocart');
 
     }
     else {
@@ -48,7 +49,8 @@ cartaddrouter.route('/').get(authcontroller.isLoggedIn, (req, res) => {
         res.redirect('/');  
 
 
-    }
+      }
+
 
 
 })
@@ -89,7 +91,9 @@ con.query("SELECT * from product where pid=?",[id],(err,result)=>{
     }
 
     res.render('addtocart',{
-        result:result[0]
+        product:result[0],
+        user:req.user
+
     });
 
 })
@@ -103,22 +107,17 @@ con.query("SELECT * from product where pid=?",[id],(err,result)=>{
 cartaddrouter.route('/').post(authcontroller.isLoggedIn,(req,res)=>{
    
     
-    if (req.user) {
+ 
+ 
+    if (!req.user) {
 
-        console.log(req.user);
 
-        res.render('addtocart',{
-            user:req.user
+
+        return res.status(400).render('login', {
+            message: 'login First'
         });
 
     }
-    else {
-  
-        res.redirect('/');  
-
-
-    }
-
 
     // let {productID,quantity}= req.body;
     let productId = req.body.productId;
@@ -152,13 +151,12 @@ cartaddrouter.route('/').post(authcontroller.isLoggedIn,(req,res)=>{
             return;
         }
 
-        results=result[0];
+        product=result[0];
         // console.log(` the product is ${result}`);
    
-// ******problem is from here******
 
         let sql="insert into cart(user_id,pid,quantity) values(?)";
-        let columns=[req.user.user_id,results.pid,quantity]
+        let columns=[req.user.user_id,product.pid,quantity]
        
         // add to cart
         con.query(sql,[columns],(err,result)=>{
@@ -168,12 +166,12 @@ cartaddrouter.route('/').post(authcontroller.isLoggedIn,(req,res)=>{
                 return;
             }
 
-            //on successful redirect to homepage
+            //on successful redirect to cart
             res.redirect('/cart');
         })
 
     });
-
+    
 });
 
 module.exports=cartaddrouter;

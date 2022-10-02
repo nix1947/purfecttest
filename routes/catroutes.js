@@ -35,8 +35,8 @@ catrouter.route('/:id').get((req, res) => {
 }  
    );
  
-   con.query("SELECT * from product where pcategory='cat'",(err,result)=>{
-    res.render('catproductdetail',{result:result[id]});
+   con.query("SELECT * from product where pcategory='cat' and pid=?",[id],(err,result)=>{
+    res.render('catproductdetail',{result:result});
    });
   });
 

@@ -1,105 +1,114 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>addtocart!</title>
-  </head>
-  <body>
-    
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-    <div class="container">
-          <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <!-- <a class="navbar-brand" href="#">Navbar</a> -->
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-              <ul class="navbar-nav">
-               
-                <li class="nav-item">
-                  <a class="nav-link" href="/">Home</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/profile">Myprofile</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link " href="/catproducts">Catitems</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link " href="/dogproducts">Dogitems</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link " href="fishproducts">Fishitems</a>
-                  </li>
+  <title>addtocart!</title>
+</head>
 
-             
-              </ul>
-            </div>
-          </nav>
-        </div>
+<body>
 
-  
-<!-- <navbar closes -->
-    <div class="container mt-4">
+
+  <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/profile">Myprofile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="/catproducts">Catitems</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="/dogproducts">Dogitems</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="fishproducts">Fishitems</a>
+          </li>
+
+
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+
+  <!-- <navbar closes -->
+  <div class="container mt-4">
     <div class="card">
-        <div class=" h3 card-header fs-4 ">
-            Add to Cart
-        </div>
-        <div class="card-body">
-          
-            <form method="post" action="/add/cart/ ">
-            
-                <div class="row mb-3">
-                    <label class="fs-5 " for="inlineFormInputGroupUsername" > <span class="font-weight-bold">Name</span>:<%=result.pname %> </label>
-    
-                </div>
-              
-                <input type="hidden" name="productId" value="<%=result.pid%>">
-    
-                <div class="row mb-3">
-                    <label class="fs-5" for=""><span class="font-weight-bold">RS:</span> <span id="productPrice"> <%=result.pprice %> <span></label>
-    
-                </div>
-    
-                <div class="row mb-3 ">
-                    <label class="fs-5" for=""><span class="font-weight-bold">Quantity:&nbsp;&nbsp;</span></label>
-    
-                    <input class="form-control " onkeyup="calculateTotal()" id="productQuantity" style="max-width: 40%;"
-                        type="number" name="quantity" value="1" id="inlineFormCheck">
-                </div>
-             
-                <!-- <div class="col-12"> -->
-                    <button type="submit" class="btn btn-primary">Add</button>
-                </div>
-            
-            </form>
-            <!-- <div class="col-12"> -->
-                <label class="fs-5">
-    
-                    <span class="font-weight-bold">Your total is: &nbsp;</span> <span id="total"></span>
-                </label>
-    
-            </div>
-        </div>
+      <div class=" h3 card-header fs-4 ">
+        Add to Cart
+      </div>
+      <div class="card-body">
+
+        <form method="post" action="/add/cart ">
+
+          <div class="row mb-3">
+            <label class="fs-5 " for="inlineFormInputGroupUsername"> <span class="font-weight-bold">Name</span>:
+              <%=product.pname %> </label>
+
+          </div>
+
+          <input type="hidden" name="productId" value="<%=product.pid%>">
+
+          <div class="row mb-3">
+            <label class="fs-5" for=""><span class="font-weight-bold">RS:</span> <span id="productPrice">
+                <%=product.pprice %> <span></label>
+
+          </div>
+
+          <div class="row mb-3 ">
+            <label class="fs-5" for=""><span class="font-weight-bold">Quantity:&nbsp;&nbsp;</span></label>
+
+            <input class="form-control " onkeyup="calculateTotal()" id="productQuantity" style="max-width: 40%;"
+              type="number" name="quantity" value="1" id="inlineFormCheck">
+          </div>
+
+          <!-- <div class="col-12"> -->
+
+           
+
+            <button type="submit" class="btn btn-primary">Add</button>
+           
+         
+          </form>
+
+          <!-- <div class="col-12"> -->
+          <label class="fs-5">
+
+            <span class="font-weight-bold">Your total is: &nbsp;</span> <span id="total"></span>
+          </label>
+
     </div>
-</div>
-    <script>
-        function calculateTotal() {
-            let totalPlaceholder = document.getElementById('total');
-            let price = document.getElementById('productPrice').innerText;
-            let quantity = document.getElementById('productQuantity').value;
-            console.log(price, quantity);
-            totalPlaceholder.innerText = Number.parseInt(price) * Number.parseInt(quantity);
-        }
-        calculateTotal();
-    </script>
-  
+  </div>
+  </div>
+  </div>
+  <script>
+    function calculateTotal() {
+      let totalPlaceholder = document.getElementById('total');
+      let price = document.getElementById('productPrice').innerText;
+      let quantity = document.getElementById('productQuantity').value;
+      console.log(price, quantity);
+      totalPlaceholder.innerText = Number.parseInt(price) * Number.parseInt(quantity);
+    }
+    calculateTotal();
+  </script>
 
 
 
@@ -114,10 +123,18 @@
 
 
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-  </body>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+</body>
+
 </html>

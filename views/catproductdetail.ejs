@@ -8,11 +8,11 @@
     <meta name="author" content="" />
     <title>Shop Homepage - Start Bootstrap Template</title>
     <!-- Favicon-->
-    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     <!-- Bootstrap icons-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet"/>
+
     <link rel="stylesheet" href="/assets/css/owl.carousel.min.css">
-    <!-- Core theme CSS (includes Bootstrap)-->
     <link href="/assets/css/stylesnext.css" rel="stylesheet" />
 </head>
 
@@ -51,14 +51,15 @@
                         <!-- Product image-->
                         <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
                         <!-- Product details-->
+                        <% result.forEach((item,i)=>{ %> 
                         <div class="card-body p-4">
                             <div class="text-center fw-bolder">
 
                                 <h5>
-                                    <%=result.pname%>
+                                    <%=item.pname %> 
                                 </h5>
 
-                                Rs.<%=result.pprice %>
+                                 Rs<%=item.pprice %> 
 
                             </div>
 
@@ -68,16 +69,19 @@
 
                         <!-- Product actions-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to Cart</a>
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="/add/cart/<%=item.pid%>">Add to Cart</a>
                             </div>
+                          
                         </div>
+                        <% }) %> 
 
                     </div>
                 </div>
             </div>
 
         </div>
-        <!-- accordian -->
+        </div>
+
         <div class="accordion" id="accordionExample">
             <div class="accordion-item">
                 <h2 class="accordion-header" id="headingOne">
@@ -98,129 +102,132 @@
             </div>
 
         </div>
-       
     </section>
 
-  <!-- //recomendatoions -->
-  <h3 class="recomendation text-left">  Related Products</h3>
 
- <div class="container">
-    <div class="slider">
-    <div class="owl-carousel">
-       
-        <div class="slider-card">
-            <div class="d-flex  justify-content-center align-items-center mb-4">
-                <img src="/assets/img/animalbowl.jpg" alt="dummyimage1">
-            </div>
+     <!-- recomendation -->
+     <h3 class="recomendation text-left"> Related Products</h3>
+     <div class="container">
+        <div class="slider">
+        <div class="owl-carousel">
            
-
-            <div class="card-body ">
-                <div class="text-center">
+            <div class="slider-card">
+                <div class="d-flex  justify-content-center align-items-center mb-4">
+                    <img src="/assets/img/animalbowl.jpg" alt="dummyimage1">
+                </div>
+               
     
-                 <h5 class="fw-bolder">item</h5>
-                
-                 Rs.200 
-                </div>
-            </div>
+                <div class="card-body ">
+                    <div class="text-center">
         
-            <div class="card-footer pb-4 pt-0 border-top-0 bg-transparent">
-                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">View Product</a>
+                     <h5 class="fw-bolder">item</h5>
+                    
+                     Rs.200 
+                    </div>
                 </div>
-            </div>
-
-        </div>
-        <div class="slider-card">
-            <div class="d-flex  justify-content-center align-items-center mb-4">
-                <img src="/assets/img/catharness.jpg" alt="dummyimage1">
-            </div>
-
-            <div class="card-body ">
-                <div class="text-center">
-    
-                 <h5 class="fw-bolder">item</h5>
-                
-                 Rs.200 
-                </div>
-            </div>
-        
-            <div class="card-footer pb-4 pt-0 border-top-0 bg-transparent">
-                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">View Product</a>
-                </div>
-            </div>
-
-
-        </div>
-        <div class="slider-card">
-            <div class="d-flex  justify-content-center align-items-center mb-4">
-                <img src="/assets/img/churpi.jpg" alt="dummyimage1">
-            </div>
-
-            <div class="card-body ">
-                <div class="text-center">
-    
-                 <h5 class="fw-bolder">item</h5>
-                
-                 Rs.200 
-                </div>
-            </div>
-        
-            <div class="card-footer pb-4 pt-0 border-top-0 bg-transparent">
-                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">View Product</a>
-                </div>
-            </div>
-
             
-        </div>
-        <div class="slider-card">
-            <div class="d-flex  justify-content-center align-items-center mb-4">
-                <img src="/assets/img/animalbowl.jpg" alt="dummyimage1">
-            </div>
-
-            <div class="card-body ">
-                <div class="text-center">
+                <div class="card-footer pb-4 pt-0 border-top-0 bg-transparent">
+                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">View Product</a>
+                    </div>
+                </div>
     
-                 <h5 class="fw-bolder">item</h5>
-                
-                 Rs.200 
-                </div>
             </div>
+            <div class="slider-card">
+                <div class="d-flex  justify-content-center align-items-center mb-4">
+                    <img src="/assets/img/catharness.jpg" alt="dummyimage1">
+                </div>
+    
+                <div class="card-body ">
+                    <div class="text-center">
         
-            <div class="card-footer pb-4 pt-0 border-top-0 bg-transparent">
-                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">View Product</a>
+                     <h5 class="fw-bolder">item</h5>
+                    
+                     Rs.200 
+                    </div>
                 </div>
-            </div>
-
             
-        </div>
-        <div class="slider-card">
-            <div class="d-flex  justify-content-center align-items-center mb-4">
-                <img src="/assets/img/animalbowl.jpg" alt="dummyimage1">
-            </div>
-            <div class="card-body ">
-                <div class="text-center">
+                <div class="card-footer pb-4 pt-0 border-top-0 bg-transparent">
+                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">View Product</a>
+                    </div>
+                </div>
     
-                 <h5 class="fw-bolder">item</h5>
-                
-                 Rs.200 
-                </div>
+    
             </div>
+            <div class="slider-card">
+                <div class="d-flex  justify-content-center align-items-center mb-4">
+                    <img src="/assets/img/churpi.jpg" alt="dummyimage1">
+                </div>
+    
+                <div class="card-body ">
+                    <div class="text-center">
         
-            <div class="card-footer pb-4 pt-0 border-top-0 bg-transparent">
-                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">View Product</a>
+                     <h5 class="fw-bolder">item</h5>
+                    
+                     Rs.200 
+                    </div>
                 </div>
+            
+                <div class="card-footer pb-4 pt-0 border-top-0 bg-transparent">
+                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">View Product</a>
+                    </div>
+                </div>
+    
+                
             </div>
-
-          
+            <div class="slider-card">
+                <div class="d-flex  justify-content-center align-items-center mb-4">
+                    <img src="/assets/img/animalbowl.jpg" alt="dummyimage1">
+                </div>
+    
+                <div class="card-body ">
+                    <div class="text-center">
+        
+                     <h5 class="fw-bolder">item</h5>
+                    
+                     Rs.200 
+                    </div>
+                </div>
+            
+                <div class="card-footer pb-4 pt-0 border-top-0 bg-transparent">
+                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">View Product</a>
+                    </div>
+                </div>
+    
+                
+            </div>
+            <div class="slider-card">
+                <div class="d-flex  justify-content-center align-items-center mb-4">
+                    <img src="/assets/img/animalbowl.jpg" alt="dummyimage1">
+                </div>
+                <div class="card-body ">
+                    <div class="text-center">
+        
+                     <h5 class="fw-bolder">item</h5>
+                    
+                     Rs.200 
+                    </div>
+                </div>
+            
+                <div class="card-footer pb-4 pt-0 border-top-0 bg-transparent">
+                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">View Product</a>
+                    </div>
+                </div>
+    
+              
+            </div>
         </div>
-    </div>
+    
+        </div>
+     </div>
+ 
+     <!-- recomendation close-->
+    <!-- Footer-->
 
-    </div>
- </div>
-
-        <!--recomendation close-->
-
-        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-        <script src="/assets/js/owl.carousel.min.js"></script>
+    <!-- Bootstrap core JS-->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="/assets/js/owl.carousel.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
     <script src="/assets/js/scripts.js"></script>
 </body>
 
