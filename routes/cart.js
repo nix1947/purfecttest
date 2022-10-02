@@ -11,26 +11,54 @@ const authcontroller = require('../controllers/auth')
 const dotenv= require('dotenv');
 dotenv.config({path:'./.env'});
 
-
+let cart_message;
 
 
 
 
 cartrouter.route('/').get(authcontroller.isLoggedIn, (req, res) => {
 
-    if (req.user) {
+    if (!req.user) {
 
-        res.render('cart',{
-            user:req.user
-        });
-
-    }
-    else {
-  
         res.redirect('/');  
 
-
     }
+    
+    let sql = "select product.pname, product.pprice, cart.quantity*product.pprice as sub_total from cart inner join product on cart.pid=product.pid where cart.user_id=?";
+   
+    con.query(sql, [req.user.user_id], function (err, result) {
+        if (err) {
+            res.send("Error fetching user cart");
+            return;
+        }
+        if(result.length<=0)
+        {
+            cart_message="your cart is empty";
+        }
+
+
+        if (result.length >= 0) {
+            total_item = result.length;
+            cart_message = `You have total ${total_item} item in your cart`;
+
+            let total_quantity = 0;
+            let total_price = 0
+
+            result.forEach(item => {
+                total_quantity += item.quantity;
+                total_price += item.sub_total;
+            });
+
+            res.render('/cart', {
+                cart_message: cart_message,
+                items: result,
+                total_quantity: total_quantity,
+                total_price: total_price
+            });
+        }  
+
+    })
+
 
 
 })
@@ -42,30 +70,30 @@ cartrouter.route('/').get(authcontroller.isLoggedIn, (req, res) => {
 // ++++++++++++
 
 
-cartrouter.route('/:id').get((req,res)=>{
+// cartrouter.route('/:id').get((req,res)=>{
 
    
-  const id = req.params.id;
-  console.log(id); //db kai pid ako cha
-  const con = mysql.createConnection({
+//   const id = req.params.id;
+//   console.log(id); //db kai pid ako cha
+//   const con = mysql.createConnection({
   
-      host:process.env.DATABASE_HOST,
-      user:process.env.DATABASE_USER,
-      password:process.env.DATABASE_PASSWORD,
-      database:process.env.DATABASE
+//       host:process.env.DATABASE_HOST,
+//       user:process.env.DATABASE_USER,
+//       password:process.env.DATABASE_PASSWORD,
+//       database:process.env.DATABASE
     
 
-})
-con.query("SELECT * from product where pid=?",[id],(err,result)=>{
-    res.render('cart',{
-        result:result
-    });
+// })
+// con.query("SELECT * from product where pid=?",[id],(err,result)=>{
+//     res.render('cart',{
+//         result:result
+//     });
 
-})
-});
+// })
+// });
 
 
-
+// });
 
 
 module.exports= cartrouter;
@@ -93,8 +121,6 @@ module.exports= cartrouter;
 //   res.render('cart',{
 //     result:result })
 
-
-module.exports= cartrouter;
 
 
 

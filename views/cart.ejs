@@ -15,7 +15,7 @@
     
 <div class="card">
     <div class="card-header fs-5">
-        {{cart_message}}
+        <%= cart_message %> 
     </div>
     <div class="card-body">
         <h5 class="card-title">Products in your cart</h5>
@@ -29,12 +29,12 @@
                 </tr>
             </thead>
             <tbody>
-              <% result.forEach((item,i)=>{ %> 
+              <% result.forEach((items)=>{ %> 
                 <tr>
-                    <td><%=item.pname %> </td>
-                    <td><%=item.pprice %> </td>
-                    <td><%=item.quantity %></td>
-                    <td>{{sub_total}}</td>
+                    <td><%=pname%> </td>
+                    <td><%=pprice %> </td>
+                    <td><%=quantity %></td>
+                    <td><%=sub_total%> </td>
                 </tr>
                  <% }) %> 
             </tbody>
@@ -43,8 +43,8 @@
                 <tr>
                     <td>Total: </td>
                     <td></td>
-                    <td>{{total_quantity}}</td>
-                    <td>{{total_price}}</td>
+                    <td><%= total_quantity %></td>
+                    <td> <%= total_price  %></td>
                 </tr>
             </tfoot>
         </table>
@@ -55,14 +55,14 @@
 </div>
 
 <!-- Checkout confirmation modal -->
-<div class="modal fade" tabindex="-1" id="checkOutModal">
+<!-- <div class="modal fade" tabindex="-1" id="checkOutModal">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Order Confirmation</h5>
-                <% if(items){ %> 
+                
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                <% } %> 
+                
             </div>
 
 
@@ -102,7 +102,7 @@
 
         </div>
     </div>
-</div>
+</div> -->
 
 
 

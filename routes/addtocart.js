@@ -8,7 +8,7 @@ const authcontroller = require('../controllers/auth')
 
 const dotenv= require('dotenv');
 dotenv.config({path:'./.env'});
-
+let results;
 // database connection
 
 const con = mysql.createConnection({
@@ -123,7 +123,7 @@ cartaddrouter.route('/').post(authcontroller.isLoggedIn,(req,res)=>{
     // let {productID,quantity}= req.body;
     let productId = req.body.productId;
     let quantity = req.body.quantity;
-    let result;
+   
     
 
     console.log(`the product result id is ${productId} and quantity is ${quantity}`);
@@ -152,13 +152,13 @@ cartaddrouter.route('/').post(authcontroller.isLoggedIn,(req,res)=>{
             return;
         }
 
-        result=result[0];
+        results=result[0];
         // console.log(` the product is ${result}`);
    
 // ******problem is from here******
 
         let sql="insert into cart(user_id,pid,quantity) values(?)";
-        let columns=[req.user.user_id,result.pid,quantity]
+        let columns=[req.user.user_id,results.pid,quantity]
        
         // add to cart
         con.query(sql,[columns],(err,result)=>{
@@ -169,9 +169,7 @@ cartaddrouter.route('/').post(authcontroller.isLoggedIn,(req,res)=>{
             }
 
             //on successful redirect to homepage
-            res.render('cart',{
-                result:result
-            })
+            res.redirect('/cart');
         })
 
     });
