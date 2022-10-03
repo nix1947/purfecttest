@@ -12,6 +12,15 @@
 
     <title>Hello, world!</title>
   </head>
+  <style>
+    .delete:focus{
+      outline: none;
+    
+    }
+    .delete:hover{
+      color: red;
+    }
+  </style>
   <body>
    
    <!-- navbar start  -->
@@ -64,7 +73,7 @@
                     <th scope="col fs-5">Price</th>
                     <th scope="col fs-5">Quantity</th>
                     <th scope="col fs-5">Subtotal</th>
-                    <th></th>
+                    <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
@@ -74,14 +83,14 @@
                     <td><%=item.pprice %> </td>
                     <td><%=item.quantity%></td>
                     <td><%=item.sub_total%> </td>
-                    <!-- <td> <a class="bi bi-trash3-fill text-danger" id="deleteitem"></a></td> -->
-
                     <td>
                       <form action="/cart" method="post">
                      <input type="hidden" name="cart_id" value="<%=item.pid %> ">
-                     <button type='submit' class='delete' value="Delete">Delete</button>
+                     <!-- <button type='submit' class='delete class="bi bi-trash3-fill' value="Delete">Delete</button> -->
+                     <button type='submit' class='delete border-0  class="bi bi-trash3-fill' value="Delete"></button>
                     </form>
                   </td>
+                  
 
     
                 </tr>
