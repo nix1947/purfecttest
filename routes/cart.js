@@ -33,7 +33,7 @@ cartrouter.route('/').get(authcontroller.isLoggedIn, (req, res) => {
 
     }
     
-    let sql = "select product.pname, product.pprice,cart.quantity,cart.quantity*product.pprice as sub_total from cart inner join product on cart.pid=product.pid where cart.user_id=?";
+    let sql = "select product.pname, product.pprice,cart.quantity,cart.pid,cart.quantity*product.pprice as sub_total from cart inner join product on cart.pid=product.pid where cart.user_id=?";
    
     con.query(sql, [req.user.user_id], function (err, result) {
     
@@ -42,8 +42,10 @@ cartrouter.route('/').get(authcontroller.isLoggedIn, (req, res) => {
             return;
         }
         if(result.length<=0)
+    
         {
             cart_message="your cart is empty";
+        
         }
 
 
@@ -73,7 +75,15 @@ cartrouter.route('/').get(authcontroller.isLoggedIn, (req, res) => {
 
 })
 
+cartrouter.route('/').post((req,res)=>{
 
+ let cart_id= req.body.cart_id;
+    if(cart_id){
+         con.query("DELETE FROM cart WHERE pid=?",[cart_id]);
+    }
+    res.redirect('/cart');
+
+})
 
 
 // getting the product id from db
