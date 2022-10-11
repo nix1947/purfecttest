@@ -1,320 +1,189 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-  <title>Purrfect Store-get products for  pets </title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
-
-  <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
-  <!-- Google Fonts -->
-  <link
-    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-    rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-  <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="d-flex align-items-center">
+      <div class="container text-center position-relative" data-aos="fade-in" data-aos-delay="200">
+        <h1>One Stop for your pet products</h1>
+        <h2>from premium pet food to quality treats,toys,beds and so much more</h2>
+        <% if (user) { %>
+        <a href="#" class="btn-get-started scrollto">search bar here </a>
+        <% }  else { %>
+        <a href="/signup" class="btn-get-started scrollto">sign up </a>
+        <% } %>
 
 
-</head>
-
-<body>
-
-  <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top d-flex align-items-center">
-    <div class="container">
-      <div class="header-container d-flex align-items-center justify-content-between">
-      <a href="/">  <div class="logo">
-          <!-- <h1 class="text-light"><a href="/"><span>Purrfect Store</span></a></h1> -->
-          <!-- Uncomment below if you prefer to use an image logo -->
-          <!-- <a href="/"><img src="" alt="" class="img-fluid"></a> -->
-        </div>
-        </a>
-
-        <nav id="navbar" class="navbar">
-          <ul>
-            <li><a class="nav-link active" href="/">Home</a></li>
-            <li><a class="nav-link " href="/catproducts">Catitems</a></li>
-            <li><a class="nav-link " href="/dogproducts">Dogitems</a></li>
-            <li><a class="nav-link" href="/fishproducts">Fishitems</a></li>
-            <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-          
-            <li><a class="nav-link " href="#about">About</a></li>
-           
-            <% if (user) { %>
-             
-           
-            <li><a class="nav-link" href="/profile">Myprofile</a></li>
-            <li><a class="nav-link" href="/cart">Cart</a></li>
-            <li><a class="getstarted" href="/userlogout">Logout</a></li>
-            <% }  else { %>
-             
-             
-            <!-- <li><a class="nav-link" href="/login" style="margin-right:20px">Login</a></li> -->
-            <a href="/login" class=" back me-1 " style="padding-right: 30px;color:white;">Login </a> 
-          
-            <% } %>  
-            <div class="input-group">
-            
-          </ul>
-          <i class="bi bi-list mobile-nav-toggle"></i>
-        </nav><!-- .navbar -->
-
-      </div><!-- End Header Container -->
-    </div>
-
-  </header><!-- End Header -->
-
-  <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex align-items-center">
-    <div class="container text-center position-relative" data-aos="fade-in" data-aos-delay="200">
-      <h1>One Stop for your pet products</h1>
-      <h2>from premium pet food to quality treats,toys,beds and so much more</h2>
-      <% if (user) { %>
-      <a href="#" class="btn-get-started scrollto">search bar here </a>
-      <% }  else { %>
-      <a href="/signup" class="btn-get-started scrollto">sign up </a> 
-      <% } %>  
-
-
-    </div>
-
-    
-  </section><!-- End Hero -->
-  
-
-  <main id="main">
-
-
-    <!-- ======= About Section ======= -->
-    <section id="about" class="about">
-      <div class="container">
-
-        <div class="row content">
-          <div class="col-lg-6" data-aos="fade-right" data-aos-delay="100">
-            <h2>About Us</h2>
-            <h3>FROM PREMIUM PET FOOD TO QUALITY TREATS,TOYS,BEDS AND SO MUCH MORE</h3>
-          </div>
-          <div class="col-lg-6 pt-4 pt-lg-0" data-aos="fade-left" data-aos-delay="200">
-            <p>Purrfect Store Nepal is the first leading online ecommerce website for sell of pets like dog puppies, supplies, food and health related accessories</p>
-            <p>
-
-              A pet shop or pet store is a retail business which sells animals and pet care resources to the public. A variety of animal supplies and pet accessories are also sold in pet shops. The products sold include: food, treats, toys, collars, leashes, cat litter, cages and aquariums.
-              Purr-fect a quick and convenient place for pet owners to shop online. 
-
-            </p>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto consectetur eos quidem reprehenderit accusamus, laudantium in placeat labore, deleniti totam dolore libero, ullam molestiae quam assumenda facere. Optio tempore debitis, magnam tempora distinctio atque sint fugiat quidem unde, molestiae nih.lorem20 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus nostrum molestiae deserunt quam sed nisi, incidunt voluptatem! Quisquam, deserunt inventore!</p>
-          </div>
-        </div>
       </div>
-    </section>
-    <!-- End About Section -->
 
-    
-    <!-- ======= Why Us Section ======= -->
-    <section id="why-us" class="why-us">
-      <div class="container">
 
-        <div class="row">
-          <div class="col-lg-4 d-flex align-items-stretch" data-aos="fade-right">
-            <div class="content">
-              <h3>Why Choose Bethany for your company website?</h3>
+    </section><!-- End Hero -->
+
+
+    <main id="main">
+
+
+      <!-- ======= About Section ======= -->
+      <section id="about" class="about">
+        <div class="container">
+
+          <div class="row content">
+            <div class="col-lg-6" data-aos="fade-right" data-aos-delay="100">
+              <h2>About Us</h2>
+              <h3>FROM PREMIUM PET FOOD TO QUALITY TREATS,TOYS,BEDS AND SO MUCH MORE</h3>
+            </div>
+            <div class="col-lg-6 pt-4 pt-lg-0" data-aos="fade-left" data-aos-delay="200">
+              <p>Purrfect Store Nepal is the first leading online ecommerce website for sell of pets like dog
+                puppies,
+                supplies, food and health related accessories</p>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Duis aute irure dolor in reprehenderit
-                Asperiores dolores sed et. Tenetur quia eos. Autem tempore quibusdam vel necessitatibus optio ad
-                corporis.
+
+                A pet shop or pet store is a retail business which sells animals and pet care resources to
+                the public. A
+                variety of animal supplies and pet accessories are also sold in pet shops. The products sold
+                include:
+                food, treats, toys, collars, leashes, cat litter, cages and aquariums.
+                Purr-fect a quick and convenient place for pet owners to shop online.
+
               </p>
-              <div class="text-center">
-                <a href="#" class="more-btn">Learn More <i class="bx bx-chevron-right"></i></a>
-              </div>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto consectetur eos quidem
+                reprehenderit
+                accusamus, laudantium in placeat labore, deleniti totam dolore libero, ullam molestiae quam
+                assumenda
+                facere. Optio tempore debitis, magnam tempora distinctio atque sint fugiat quidem unde,
+                molestiae
+                nih.lorem20 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus nostrum
+                molestiae deserunt
+                quam sed nisi, incidunt voluptatem! Quisquam, deserunt inventore!</p>
             </div>
-          </div>
-          <div class="col-lg-8 d-flex align-items-stretch">
-            <div class="icon-boxes d-flex flex-column justify-content-center">
-              <div class="row">
-                <div class="col-xl-4 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
-                  <div class="icon-box mt-4 mt-xl-0">
-
-                    <!-- ****class for icons****** -->
-                    <i class="bx bx-receipt"></i>
-                    <h4>Corporis voluptates sit</h4>
-                    <p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut aliquip</p>
-                  </div>
-                </div>
-                <div class="col-xl-4 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="200">
-                  <div class="icon-box mt-4 mt-xl-0">
-                    <i class="bx bx-cube-alt"></i>
-                    <h4>Ullamco laboris ladore pan</h4>
-                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt</p>
-                  </div>
-                </div>
-                <div class="col-xl-4 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="300">
-                  <div class="icon-box mt-4 mt-xl-0">
-                    <i class="bx bx-images"></i>
-                    <h4>Labore consequatur</h4>
-                    <p>Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut maiores omnis facere</p>
-                  </div>
-                </div>
-              </div>
-            </div><!-- End .content-->
           </div>
         </div>
-
-      </div>
-    </section><!-- End Why Us Section -->
-
+      </section>
+      <!-- End About Section -->
 
 
+      <!-- ======= Why Us Section ======= -->
+      <section id="why-us" class="why-us">
+        <div class="container">
 
-    <!-- ======= Contact Section ======= -->
-    <section id="contact" class="contact">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-4" data-aos="fade-right">
-            <div class="section-title">
-              <h2>Contact</h2>
-              <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
-                consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat
-                sit in iste officiis commodi quidem hic quas.</p>
+          <div class="row">
+            <div class="col-lg-4 d-flex align-items-stretch" data-aos="fade-right">
+              <div class="content">
+                <h3>Why Choose Bethany for your company website?</h3>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                  incididunt ut labore et
+                  dolore magna aliqua. Duis aute irure dolor in reprehenderit
+                  Asperiores dolores sed et. Tenetur quia eos. Autem tempore quibusdam vel necessitatibus
+                  optio ad
+                  corporis.
+                </p>
+                <div class="text-center">
+                  <a href="#" class="more-btn">Learn More <i class="bx bx-chevron-right"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-8 d-flex align-items-stretch">
+              <div class="icon-boxes d-flex flex-column justify-content-center">
+                <div class="row">
+                  <div class="col-xl-4 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="icon-box mt-4 mt-xl-0">
+
+                      <!-- ****class for icons****** -->
+                      <i class="bx bx-receipt"></i>
+                      <h4>Corporis voluptates sit</h4>
+                      <p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut
+                        aliquip</p>
+                    </div>
+                  </div>
+                  <div class="col-xl-4 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="icon-box mt-4 mt-xl-0">
+                      <i class="bx bx-cube-alt"></i>
+                      <h4>Ullamco laboris ladore pan</h4>
+                      <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                        deserunt</p>
+                    </div>
+                  </div>
+                  <div class="col-xl-4 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="icon-box mt-4 mt-xl-0">
+                      <i class="bx bx-images"></i>
+                      <h4>Labore consequatur</h4>
+                      <p>Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut maiores omnis
+                        facere</p>
+                    </div>
+                  </div>
+                </div>
+              </div><!-- End .content-->
             </div>
           </div>
 
-          <div class="col-lg-8" data-aos="fade-up" data-aos-delay="100">
-
-            <div class="info mt-4">
-              <i class="bi bi-geo-alt"></i>
-              <h4>Location:</h4>
-              <p>A108 Adam Street, New York, NY 535022</p>
-            </div>
-            <div class="row">
-              <div class="col-lg-6 mt-4">
-                <div class="info">
-                  <i class="bi bi-envelope"></i>
-                  <h4>Email:</h4>
-                  <p>info@example.com</p>
-                </div>
-              </div>
-              <div class="col-lg-6">
-                <div class="info w-100 mt-4">
-                  <i class="bi bi-phone"></i>
-                  <h4>Call:</h4>
-                  <p>+1 5589 55488 55s</p>
-                </div>
-              </div>
-            </div>
-
-            <form method="post" role="form" class="php-email-form mt-4">
-              <div class="row">
-                <div class="col-md-6 form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
-                </div>
-                <div class="col-md-6 form-group mt-3 mt-md-0">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
-                </div>
-              </div>
-              <div class="form-group mt-3">
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
-              </div>
-              <div class="form-group mt-3">
-                <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
-              </div>
-              <div class="my-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
-              </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
-            </form>
-          </div>
         </div>
+      </section><!-- End Why Us Section -->
 
-      </div>
-    </section><!-- End Contact Section -->
 
-  </main><!-- End #main -->
 
-  <!-- ======= Footer ======= -->
-  <footer id="footer">
 
-    <div class="footer-top">
-      <div class="container ">
-        <div class="row d-flex justify-content-between">
+      <!-- ======= Contact Section ======= -->
+      <section id="contact" class="contact">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-4" data-aos="fade-right">
+              <div class="section-title">
+                <h2>Contact</h2>
+                <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum
+                  quidem. Sit sint
+                  consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias
+                  ea. Quia fugiat
+                  sit in iste officiis commodi quidem hic quas.</p>
+              </div>
+            </div>
 
-          <div class="col-lg-3 col-md-6 footer-contact">
-            <h3>Purrfect Store</h3>
-            <p>
-              Om Nagar Tol<br>
-              Kathmandu,Sinamangal<br>
-              <strong>Phone:</strong>9811245769<br>
-              <strong>Email:</strong><a href="#">Purr-fect@gmail.com</a><br>
-            </p>
+            <div class="col-lg-8" data-aos="fade-up" data-aos-delay="100">
+
+              <div class="info mt-4">
+                <i class="bi bi-geo-alt"></i>
+                <h4>Location:</h4>
+                <p>A108 Adam Street, New York, NY 535022</p>
+              </div>
+              <div class="row">
+                <div class="col-lg-6 mt-4">
+                  <div class="info">
+                    <i class="bi bi-envelope"></i>
+                    <h4>Email:</h4>
+                    <p>info@example.com</p>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="info w-100 mt-4">
+                    <i class="bi bi-phone"></i>
+                    <h4>Call:</h4>
+                    <p>+1 5589 55488 55s</p>
+                  </div>
+                </div>
+              </div>
+
+              <form method="post" role="form" class="php-email-form mt-4">
+                <div class="row">
+                  <div class="col-md-6 form-group">
+                    <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+                  </div>
+                  <div class="col-md-6 form-group mt-3 mt-md-0">
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                  </div>
+                </div>
+                <div class="form-group mt-3">
+                  <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+                </div>
+                <div class="form-group mt-3">
+                  <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+                </div>
+                <div class="my-3">
+                  <div class="loading">Loading</div>
+                  <div class="error-message"></div>
+                  <div class="sent-message">Your message has been sent. Thank you!</div>
+                </div>
+                <div class="text-center"><button type="submit">Send Message</button></div>
+              </form>
+            </div>
           </div>
 
-          <div class="col-lg-2 col-md-6 footer-links">
-            <h4>Useful Links</h4>
-            <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
-            </ul>
-          </div>
+        </div>
+      </section><!-- End Contact Section -->
 
-          <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Our Services</h4>
-            <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
-            </ul>
-          </div>
-
-       
-      <div class="social-links text-center text-md-right pt-3 pt-md-0">
-        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-      </div>
-    </div>
-    </div>
-    </div>
-  </footer>
-  <!-- End Footer -->
-
-  
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/purecounter/purecounter.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-
-  <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
-
-</body>
-
-</html>
+    </main><!-- End #main -->

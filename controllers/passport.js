@@ -46,15 +46,15 @@ module.exports = function (passport) {
                     return done(err);
                 if (!rows.length) {
                     return done(null, false
-                        
-                        ); // req.flash is the way to set flashdata using connect-flash
+
+                    ); // req.flash is the way to set flashdata using connect-flash
                 }
 
                 // if the user is found but the password is wrong
                 if (!(rows[0].password == password))
-                    return done(null, false, ); // create the loginMessage and save it to session as flashdata
+                    return done(null, false,); // create the loginMessage and save it to session as flashdata
 
-                // all is well, return successful user
+                // return successful user
                 return done(null, rows[0]);
 
             });
